@@ -16,13 +16,23 @@ genres and override the __init__ method and __str__ methods appropriately
 
 class Book():
     books = []
-    def __init__(self, title, pages, isbn, genre, author = "Unknown"):
+
+    @staticmethod
+    def initialise_list(bookfile):
+        with open(bookfile, 'r') as file:
+            for book in file:
+                eval(book)
+
+    def __init__(self, title, pages, isbn, genre, fromrepr = False, author = "Unknown", bookfile = "books.list"):
         self.title = title
         self.pages = pages
         self.isbn = isbn
         self.genre = genre
         self.author = author
         Book.books.append(self)
+        if not fromrepr:
+            with open(bookfile, 'a') as file:
+                file.write(self.__repr__() + '\n')
     
     @staticmethod
     def valid_isbn(isbn):
@@ -38,5 +48,8 @@ class Book():
 
     def __str__(self):
         return f"Written by {self.author}, {self.title} is a gripping {self.pages}-page {self.genre} novel"
+    
+    def __repr__(self):
+        return f"Book('{self.title}', {self.pages}, '{self.isbn}', '{self.genre}', fromrepr=True, author='{self.author}')"
 
 

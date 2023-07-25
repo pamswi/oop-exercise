@@ -1,11 +1,18 @@
 from book import Book
 
+def test_setup():
+    with open("test.books.list", 'w') as f:
+        pass
+    Book("Sample text", 300, "123-4-56-789012-3", "Fantasy", author="Alice Jones", bookfile="test.books.list")
+    Book("Generic title", 125, "321-4-57-787812-3", "Biography", author="John Smith", bookfile="test.books.list")
+    Book("Sample text 2", 254, "213-5-46-779812-3", "Fantasy", author="Alice Jones", bookfile="test.books.list")
+    Book.books = []
+    Book.initialise_list('test.books.list')
+
+
 def test_search_method():
-    book1 = Book("Sample text", 300, "123-4-56-789012-3", "Fantasy", "Alice Jones")
-    book2 = Book("Generic title", 125, "321-4-57-787812-3", "Biography", "John Smith")
-    book3 = Book("Sample text 2", 254, "213-5-46-779812-3", "Fantasy", "Alice Jones")
-    assert Book.search("Alice Jones") == [book1, book3]
-    assert Book.search("John Smith") == [book2]
+    assert list(map(lambda x: x.title, Book.search("Alice Jones"))) == ["Sample text", "Sample text 2"]
+    assert list(map(lambda x: x.title, Book.search("John Smith"))) == ["Generic title"]
     assert Book.search("not a real author") == []
 
 def test_isbn_checker():
