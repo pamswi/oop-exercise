@@ -1,4 +1,4 @@
-from book import Book
+from book import Book, SciFiNovel, FantasyNovel
 
 def test_setup():
     with open("test.books.list", 'w') as f:
@@ -18,3 +18,13 @@ def test_search_method():
 def test_isbn_checker():
     assert Book.valid_isbn("978-0-00-821843-0")
     assert not Book.valid_isbn("978-0-00-821843-1")
+
+def test_scifi_subclass():
+    SciFiNovel("lorem ipsum", 300, "123-4-56-789012-5", author="Bob Stevens", bookfile="test.books.list")
+    SciFiNovel("lorem ipsum 2", 546, "123-4-56-789012-7", author="Bob Stevens", bookfile="test.books.list")
+    assert list(map(lambda x: x.title, Book.search("Bob Stevens"))) == ["lorem ipsum", "lorem ipsum 2"]
+
+def test_fantasy_subclass():
+    SciFiNovel("title here", 300, "123-4-56-789032-5", author="Jane Doe", bookfile="test.books.list")
+    SciFiNovel("insert text", 546, "123-5-66-789012-7", author="Jane Doe", bookfile="test.books.list")
+    assert list(map(lambda x: x.title, Book.search("Jane Doe"))) == ["title here", "insert text"]
