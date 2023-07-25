@@ -25,6 +25,6 @@ def test_scifi_subclass():
     assert list(map(lambda x: x.title, Book.search("Bob Stevens"))) == ["lorem ipsum", "lorem ipsum 2"]
 
 def test_fantasy_subclass():
-    SciFiNovel("title here", 300, "123-4-56-789032-5", author="Jane Doe", bookfile="test.books.list")
-    SciFiNovel("insert text", 546, "123-5-66-789012-7", author="Jane Doe", bookfile="test.books.list")
+    FantasyNovel("title here", 300, "123-4-56-789032-5", author="Jane Doe", bookfile="test.books.list")
+    FantasyNovel("insert text", 546, "123-5-66-789012-7", author="Jane Doe", bookfile="test.books.list")
     assert list(map(lambda x: x.title, Book.search("Jane Doe"))) == ["title here", "insert text"]
