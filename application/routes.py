@@ -12,6 +12,9 @@ def index():
 # add new books with information supplied via url/query params
 @app.route('/add/<title>/<pages>/<isbn>/<genre>/<author>')
 def add(title, pages, isbn, genre, author):
+    '''
+    the add function takes a number of inputs and uses Book object to initiate a new book object
+    '''
     newbook = Book(title, pages, isbn, genre, author)
     return str(newbook)
 
@@ -19,6 +22,9 @@ def add(title, pages, isbn, genre, author):
 # search for books by a given author
 # serialization method for Book object
 def serialize_book(book):
+    '''
+    serialise_book function takes a book data and translates it into json
+    '''
     return {
         "title": book.title,
         "pages": book.pages,
@@ -29,6 +35,9 @@ def serialize_book(book):
 
 @app.route('/search/<author>')
 def search_author(author):
+    '''
+    search_author function takes an author as an input, looks up books by given author and returns json data on all of the books
+    '''
     books = Book.search(author)
 
     # convert the list of Book objects to a list of dictionaries
@@ -36,30 +45,3 @@ def search_author(author):
 
     # return json response
     return jsonify(books_data)
-
-# # update books that have already been added (stretch goal)
-# # @app.route('/update/<title>/<update_cat>/<new_value>')
-# @app.route('/update/<title>/<update_cat>/<new_value>')
-# def update(title, update_cat, new_value): 
-#     print(update_cat) 
-#     print(new_value) # update_cat, new_value
-#     for book in Book.books:
-#         if book.title == title:
-#             book.update_cat = new_value
-#             print(book.title)
-
-
-#     abook = Book.title_search(title)
-#     # print(title)
-#     print(abook)
-#     book_data = [serialize_book(book) for book in abook]
-#     return jsonify(book_data)
-# @app.route('/update/<title>/<update_cat>/<new_value>')
-# def update(title, update_cat, new_value):
-#     for book in Book.books:
-#         if book.title == title:
-#             book.update_book(update_cat, new_value)
-
-#     abook = Book.title_search(title)
-#     book_data = [serialize_book(book) for book in abook]
-#     return jsonify(book_data)

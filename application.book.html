@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module application.book</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="application.html" class="white">application</a>.book</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Crosze%5Cdesktop%5Cwd%5Coop-exercise%5Capplication%5Cbook.py">c:\users\rosze\desktop\wd\oop-exercise\application\book.py</a></td></tr></table>
+    <p><span class="code">Create&nbsp;a&nbsp;class&nbsp;<a href="#Book">Book</a>.&nbsp;Each&nbsp;book&nbsp;<a href="builtins.html#object">object</a>&nbsp;should&nbsp;have&nbsp;the&nbsp;attributes:&nbsp;<br>
+-&nbsp;title<br>
+-&nbsp;author&nbsp;(default&nbsp;unknown)&nbsp;<br>
+-&nbsp;number&nbsp;of&nbsp;pages<br>
+-&nbsp;genre<br>
+-&nbsp;ISBN.&nbsp;<br>
+The&nbsp;class&nbsp;should&nbsp;define&nbsp;the&nbsp;following&nbsp;methods:<br>
+-&nbsp;__init__&nbsp;to&nbsp;set&nbsp;the&nbsp;attributes&nbsp;described&nbsp;above<br>
+-&nbsp;__str__&nbsp;to&nbsp;print&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;book<br>
+-&nbsp;a&nbsp;search&nbsp;method&nbsp;which&nbsp;returns&nbsp;all&nbsp;books&nbsp;by&nbsp;a&nbsp;given&nbsp;author&nbsp;(requires&nbsp;tracking&nbsp;of&nbsp;objects)&nbsp;-&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;books&nbsp;by&nbsp;the&nbsp;given&nbsp;author&nbsp;return&nbsp;an&nbsp;empty&nbsp;list<br>
+-&nbsp;a&nbsp;method&nbsp;to&nbsp;check&nbsp;the&nbsp;validity&nbsp;of&nbsp;a&nbsp;given&nbsp;ISBN-13&nbsp;-&nbsp;should&nbsp;return&nbsp;true&nbsp;if&nbsp;the&nbsp;ISBN&nbsp;is&nbsp;valid,&nbsp;false&nbsp;otherwise<br>
+As&nbsp;an&nbsp;additional&nbsp;stretch&nbsp;goal,&nbsp;create&nbsp;2&nbsp;subclasses&nbsp;for&nbsp;specific&nbsp;<br>
+genres&nbsp;and&nbsp;override&nbsp;the&nbsp;__init__&nbsp;method&nbsp;and&nbsp;__str__&nbsp;methods&nbsp;appropriately</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="application.book.html#Book">Book</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Book">class <strong>Book</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Book">Book</a>(title,&nbsp;pages,&nbsp;isbn,&nbsp;genre,&nbsp;author='Unknown')<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Book-__init__"><strong>__init__</strong></a>(self, title, pages, isbn, genre, author='Unknown')</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Book-__str__"><strong>__str__</strong></a>(self)</dt><dd><span class="code">str&nbsp;function&nbsp;returns&nbsp;book&nbsp;info&nbsp;in&nbsp;a&nbsp;formatted&nbsp;string</span></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Book-search"><strong>search</strong></a>(author)</dt><dd><span class="code"><a href="#Book-search">search</a>(author)&nbsp;checks&nbsp;for&nbsp;books&nbsp;by&nbsp;a&nbsp;given&nbsp;author&nbsp;and&nbsp;returns&nbsp;books&nbsp;written&nbsp;by&nbsp;them</span></dd></dl>
+
+<dl><dt><a name="Book-title_search"><strong>title_search</strong></a>(title)</dt><dd><span class="code"><a href="#Book-title_search">title_search</a>(title):&nbsp;takes&nbsp;a&nbsp;book&nbsp;title&nbsp;and&nbsp;returns&nbsp;book&nbsp;info&nbsp;of&nbsp;that&nbsp;title</span></dd></dl>
+
+<dl><dt><a name="Book-valid_isbn"><strong>valid_isbn</strong></a>(isbn)</dt><dd><span class="code">valid_isbn:&nbsp;takes&nbsp;ISBN&nbsp;as&nbsp;an&nbsp;input&nbsp;and&nbsp;checks&nbsp;if&nbsp;it&nbsp;is&nbsp;indeed&nbsp;a&nbsp;valid&nbsp;ISBN<br>
+if&nbsp;the&nbsp;length&nbsp;is&nbsp;less&nbsp;than&nbsp;13,&nbsp;it&nbsp;returns&nbsp;false;&nbsp;else,&nbsp;it&nbsp;returns&nbsp;True&nbsp;for&nbsp;valid&nbsp;ISBNs</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>books</strong> = [&lt;application.book.Book object&gt;, &lt;application.book.Book object&gt;, &lt;application.book.Book object&gt;, &lt;application.book.Book object&gt;, &lt;application.book.Book object&gt;, &lt;application.book.Book object&gt;]</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>book</strong> = &lt;application.book.Book object&gt;<br>
+<strong>book1</strong> = &lt;application.book.Book object&gt;<br>
+<strong>book2</strong> = &lt;application.book.Book object&gt;<br>
+<strong>book3</strong> = &lt;application.book.Book object&gt;<br>
+<strong>book4</strong> = &lt;application.book.Book object&gt;<br>
+<strong>book5</strong> = &lt;application.book.Book object&gt;</td></tr></table>
+</body></html>
