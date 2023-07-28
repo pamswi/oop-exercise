@@ -1,5 +1,7 @@
 # OOP Exercise
 
+test build
+
 This repository is the starting point for an exercise in python OOP.  
 
 The book.py file contains a blank slate class definition for you to fill in, as well as a comment describing the requirements.  
